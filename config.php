@@ -4,7 +4,7 @@ $db   = 'url_shortener';
 $user = 'root';
 $pass = '';
 $charset = 'utf8mb4';
-
+$file_name = 'url_shortener';
 // Create connection
 $conn = new mysqli($host, $user, $pass, $db);
 
