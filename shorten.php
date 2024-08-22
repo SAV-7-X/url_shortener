@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("ss", $url, $shortCode);
 
     if ($stmt->execute()) {
-        $shortUrl = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/url_shortener/?' . $shortCode;
+        $shortUrl = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . "/$file_name/?" . $shortCode;
         echo json_encode(['success' => true, 'shortUrl' => $shortUrl]);
     } else {
         echo json_encode(['success' => false, 'message' => 'Failed to shorten URL']);
