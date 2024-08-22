@@ -1,0 +1,132 @@
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+.nav-link {
+  @apply text-gray-700 hover:text-blue-600 font-medium transition-colors duration-300 relative;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.nav-link:hover {
+  @apply transform scale-105;
+}
+
+.mobile-nav-link {
+  @apply block text-lg text-gray-700 hover:text-blue-600 font-medium transition-all duration-300;
+}
+
+.mobile-nav-link:hover {
+  @apply pl-2 bg-blue-50 rounded;
+}
+
+.btn-primary {
+  @apply px-6 py-2 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg;
+}
+
+.btn-primary:hover {
+  @apply animate-pulse;
+}
+
+#header {
+  animation: fadeInDown 0.5s ease-out;
+}
+
+#mobile-menu {
+  max-height: 0;
+  transition: max-height 0.5s ease-out;
+}
+
+#mobile-menu.active {
+  max-height: 400px;
+}
+
+#mobile-menu > div {
+  animation: slideOutUp 0.5s ease-out forwards;
+}
+
+#mobile-menu.active > div {
+  animation: slideInDown 0.5s ease-out forwards;
+}
+.feature-card {
+  @apply bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg rounded-xl p-8 shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 relative overflow-hidden;
+}
+
+.feature-card::before {
+  content: '';
+  @apply absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-200 to-purple-200 opacity-30 rounded-xl transition-all duration-300;
+}
+
+.feature-card:hover::before {
+  @apply opacity-50;
+}
+
+.feature-icon {
+  @apply w-16 h-16 bg-white bg-opacity-50 rounded-full flex items-center justify-center mb-6 mx-auto transition-all duration-300;
+}
+
+.feature-card:hover .feature-icon {
+  @apply transform rotate-12 scale-110;
+}
+
+.feature-card h3 {
+  @apply relative z-10 transition-all duration-300;
+}
+
+.feature-card:hover h3 {
+  @apply transform -translate-y-1;
+}
+
+.feature-card p {
+  @apply relative z-10 transition-all duration-300;
+}
+
+.feature-card:hover p {
+  @apply transform translate-y-1;
+}
+#contact {
+  position: relative;
+}
+
+#contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0) 100%);
+  pointer-events: none;
+}
